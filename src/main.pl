@@ -50,4 +50,8 @@ createAutor(N,C) :- existeAutor(N),atom(N),atom(C),assertz(autor(N,C)).
 
 %add_livro
 
-createBook(T, A, Y, G) :- existeAutor(A),atom(T), atom(A), integer(Y),atom(G),assertz(livro(T, A, Y, G)).
+createBook(T, A, Y, G) :- existeAutor(A), \+ existeLivro(T, A, Y), atom(T), atom(A), integer(Y),atom(G),assertz(livro(T, A, Y, G)).
+
+%livro_exists
+
+existeLivro(T, A, Y) :- livro(T, A, Y, _).
