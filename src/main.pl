@@ -40,13 +40,13 @@ auxLivrosPorAutor(A, L) :- findall(T, livro(T, A, _, _), L).
 livrosAntigos(A) :- auxLivrosAntigos(A,L),write(L).
 auxLivrosAntigos(A, L) :- findall(T,(livro(T, _, B, _), B < A),L).
 
-%add_autor
-
-createAutor(N,C) :- atom(N),atom(C),assertz(autor(N,C)).
-
 %autor_exists
 
 existeAutor(N) :- autor(N,_).
+
+%add_autor
+
+createAutor(N,C) :- existeAutor(N),atom(N),atom(C),assertz(autor(N,C)).
 
 %add_livro
 
