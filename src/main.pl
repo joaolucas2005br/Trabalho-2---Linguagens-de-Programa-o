@@ -32,3 +32,8 @@ pessoa('Castro Alves', 107).
 
 livros_por_autor(A) :- auxlivros_por_autor(A, L),write(L).
 auxlivros_por_autor(A, L) :- findall(T, livro(T, A, _, _), L).
+
+%livros_antigos
+
+livros_antigos(A) :- auxlivros_antigos(A,L),write(L).
+auxlivros_antigos(A, L) :- findall(T,(livro(T, _, B, _), B < A),L).
