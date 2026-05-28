@@ -7,6 +7,7 @@ livro('A Divina Comédia', 'Dante Alighieri', 1320, 'Poesia').
 livro('Crime e Castigo', 'Fiódor Dostoiévski', 1866, 'Romance').
 livro('O Processo', 'Franz Kafka', 1925, 'Ficção').
 livro('Cem Anos de Solidão', 'Gabriel García Márquez', 1967, 'Realismo Magico').
+:- dynamic livro/4.
 
 %autores
 
@@ -17,6 +18,7 @@ autor('Dante Alighieri', 'Italiana').
 autor('Fiódor Dostoiévski', 'Russa').
 autor('Franz Kafka', 'Austro-Hungara').
 autor('Gabriel García Márquez', 'Colombiana').
+:- dynamic autor/2.
 
 %users
 
@@ -30,10 +32,22 @@ pessoa('Castro Alves', 107).
 
 %livros_por_autor
 
-livros_por_autor(A) :- auxlivros_por_autor(A, L),write(L).
-auxlivros_por_autor(A, L) :- findall(T, livro(T, A, _, _), L).
+livrosPorAutor(A) :- auxLivrosPorAutor(A, L),write(L).
+auxLivrosPorAutor(A, L) :- findall(T, livro(T, A, _, _), L).
 
 %livros_antigos
 
-livros_antigos(A) :- auxlivros_antigos(A,L),write(L).
-auxlivros_antigos(A, L) :- findall(T,(livro(T, _, B, _), B < A),L).
+livrosAntigos(A) :- auxLivrosAntigos(A,L),write(L).
+auxLivrosAntigos(A, L) :- findall(T,(livro(T, _, B, _), B < A),L).
+
+%add_autor
+
+createAutor(N,C) :- atom(N),atom(C),assertz(autor(N,C)).
+
+%autor_exists
+
+existeAutor(N) :- autor(N,_).
+
+%add_livro
+
+createBook(T, A, Y, G) :- existeAutor(A),atom(T), atom(A), integer(Y),atom(G),assertz(livro(T, A, Y, G)).
