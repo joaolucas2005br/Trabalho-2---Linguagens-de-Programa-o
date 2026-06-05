@@ -1,17 +1,27 @@
 :- use_module(library(readutil)).
 
-%livros
-
 livro('A Arte da Guerra', 'Sun Tzu', -500, 'Estrategia').
 livro('Dom Quixote', 'Miguel de Cervantes', 1605, 'Romance').
 livro('O Príncipe', 'Nicolau Maquiavel', 1532, 'Politica').
 livro('A Divina Comédia', 'Dante Alighieri', 1320, 'Poesia').
 livro('Crime e Castigo', 'Fiódor Dostoiévski', 1866, 'Romance').
-livro('O Processo', 'Franz Kafka', 1925, 'Ficção').
+livro('O Processo', 'Franz Kafka', 1925, 'Ficcao').
 livro('Cem Anos de Solidão', 'Gabriel García Márquez', 1967, 'Realismo Magico').
-:- dynamic livro/4.
+livro('1984', 'George Orwell', 1949, 'Distopia').
+livro('A Revolução dos Bichos', 'George Orwell', 1945, 'Satira').
+livro('Orgulho e Preconceito', 'Jane Austen', 1813, 'Romance').
+livro('O Hobbit', 'J. R. R. Tolkien', 1937, 'Fantasia').
+livro('O Senhor dos Anéis', 'J. R. R. Tolkien', 1954, 'Fantasia').
+livro('Harry Potter e a Pedra Filosofal', 'J. K. Rowling', 1997, 'Fantasia').
+livro('Harry Potter e a Câmara Secreta', 'J. K. Rowling', 1998, 'Fantasia').
+livro('O Código Da Vinci', 'Dan Brown', 2003, 'Suspense').
+livro('O Alquimista', 'Paulo Coelho', 1988, 'Ficcao').
+livro('Memórias Póstumas de Brás Cubas', 'Machado de Assis', 1881, 'Romance').
+livro('Dom Casmurro', 'Machado de Assis', 1899, 'Romance').
+livro('Capitães da Areia', 'Jorge Amado', 1937, 'Romance').
+livro('Vidas Secas', 'Graciliano Ramos', 1938, 'Romance').
 
-%autores
+:- dynamic livro/4.
 
 autor('Sun Tzu', 'Chinesa').
 autor('Miguel de Cervantes', 'Espanhola').
@@ -20,9 +30,18 @@ autor('Dante Alighieri', 'Italiana').
 autor('Fiódor Dostoiévski', 'Russa').
 autor('Franz Kafka', 'Austro-Hungara').
 autor('Gabriel García Márquez', 'Colombiana').
+autor('George Orwell', 'Britanica').
+autor('Jane Austen', 'Britanica').
+autor('J. R. R. Tolkien', 'Britanica').
+autor('J. K. Rowling', 'Britanica').
+autor('Dan Brown', 'Estadunidense').
+autor('Paulo Coelho', 'Brasileira').
+autor('Machado de Assis', 'Brasileira').
+autor('Jorge Amado', 'Brasileira').
+autor('Graciliano Ramos', 'Brasileira').
+
 :- dynamic autor/2.
 
-%users
 
 pessoa('Ana Souza', 101).
 pessoa('Carlos Mendes', 102).
@@ -31,7 +50,25 @@ pessoa('Rafael Oliveira', 104).
 pessoa('Juliana Costa', 105).
 pessoa('Fernando Alves', 106).
 pessoa('Castro Alves', 107).
+pessoa('Mariana Silva', 108).
+pessoa('João Pereira', 109).
+pessoa('Lucas Martins', 110).
+pessoa('Camila Rocha', 111).
+pessoa('Patricia Gomes', 112).
+pessoa('Eduardo Santos', 113).
+pessoa('Gabriela Ferreira', 114).
+pessoa('Leonardo Costa', 115).
+
 :- dynamic pessoa/2.
+
+
+emprestimo(101, '1984', '2026-05-01').
+emprestimo(103, 'Dom Quixote', '2026-05-03').
+emprestimo(104, 'O Hobbit', '2026-05-05').
+emprestimo(105, 'Crime e Castigo', '2026-05-08').
+emprestimo(109, 'Dom Casmurro', '2026-05-10').
+emprestimo(112, 'O Alquimista', '2026-05-15').
+emprestimo(114, 'Harry Potter e a Pedra Filosofal', '2026-05-18').
 
 :- dynamic emprestimo/3.
 
